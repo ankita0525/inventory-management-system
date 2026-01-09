@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="introduction">Introduction</button>
+            <button class="tab-btn" data-tab="add-product">Add Product</button>
+            <button class="tab-btn" data-tab="show-info">Show Info</button>
+        </nav>
+
+        <!-- Introduction Section -->
+        <div id="introduction" class="tab-content active">
+            <div class="intro-section">
+                <div class="hero-section">
+                    <h1>Welcome to Inventory Management System</h1>
+                    <p class="hero-subtitle">Streamline your business operations with our powerful inventory management solution</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Automated</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Available</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Easy</span>
+                            <span class="stat-label">To Use</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="intro-content">
+                    <div class="intro-card">
+                        <div class="card-icon">📦</div>
+                        <h3>Product Management</h3>
+                        <p>Easily add, view, and manage your inventory products with our intuitive interface. Track everything from a single dashboard.</p>
+                        <div class="card-action">
+                           <button class="card-btn" data-switch-tab="add-product">Add Product</button>
+                        </div>
+                    </div>
+                    <div class="intro-card">
+                        <div class="card-icon">📊</div>
+                        <h3>Real-time Tracking</h3>
+                        <p>Keep track of stock quantities, prices, and product information in real-time. Never run out of stock again.</p>
+                        <div class="card-action">
+                            <button class="card-btn" data-switch-tab="add-product">Add Product</button>
+                        </div>
+                    </div>
+                    <div class="intro-card">
+                        <div class="card-icon">🏷️</div>
+                        <h3>Organized Categories</h3>
+                        <p>Organize products by categories, brands, and suppliers for better management. Find what you need instantly.</p>
+                        <div class="card-action">
+                            <button class="card-btn" data-switch-tab="add-product">Add Product</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="features-section">
+                    <h2>Why Choose Our System?</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">⚡</div>
+                            <h4>Lightning Fast</h4>
+                            <p>Built with modern technology for optimal performance</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔒</div>
+                            <h4>Secure & Reliable</h4>
+                            <p>Your data is safe with our robust security measures</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📱</div>
+                            <h4>Mobile Friendly</h4>
+                            <p>Access your inventory from any device, anywhere</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🎯</div>
+                            <h4>User Friendly</h4>
+                            <p>Intuitive design that anyone can use without training</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <h2>Ready to Get Started?</h2>
+                    <p>Join thousands of businesses already using our inventory management system</p>
+                    <div class="cta-buttons">
+                        <button class="cta-btn primary" data-switch-tab="add-product">
+                            Add Your First Product
+                        </button>
+                        <button class="cta-btn secondary" data-switch-tab="show-info">
+                            Explore Product Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Product Section -->
+        <div id="add-product" class="tab-content">
+            <div class="form-section">
+                <h2>Add New Product</h2>
+                <form id="addProductForm">
+                    <div class="form-group">
+                        <label for="pname">Product Name</label>
+                        <input type="text" id="pname" name="pname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="p_stock">Stock Quantity</label>
+                        <input type="number" id="p_stock" name="p_stock" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" id="price" name="price" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cid">Category</label>
+                        <select id="cid" name="cid" required>
+                            <option value="">-- Select Category --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bid">Brand</label>
+                        <select id="bid" name="bid" required>
+                            <option value="">-- Select Brand --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sid">Store / Supplier</label>
+                        <select id="sid" name="sid" required>
+                            <option value="">-- Select Store --</option>
+                        </select>
+                    </div>
+                    <button type="submit">Add Product</button>
+                </form>
+                <div id="message"></div>
+            </div>
+        </div>
+
+        <!-- Show Info Section -->
+        <div id="show-info" class="tab-content">
+            <div class="info-section">
+                <h2>Product Information</h2>
+                <div class="controls">
+                    <button id="refreshBtn" class="btn-secondary">Refresh Data</button>
+                    <button id="clearFilters" class="btn-secondary">Clear Filters</button>
+                </div>
+                <div class="filter-section">
+                    <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">All Categories</option>
+                    </select>
+                    <select id="brandFilter" class="filter-select">
+                        <option value="">All Brands</option>
+                    </select>
+                </div>
+                <div id="productsTable" class="table-container">
+                    <table id="productsList">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product Name</th>
+                                <th>Stock</th>
+                                <th>Price</th>
+                                <th>Category</th>
+                                <th>Brand</th>
+                                <th>Supplier</th>
+                                <th>Added Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsBody">
+                            <!-- Products will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="loadingMessage" class="loading-message">
+                    <span class="loading"></span> Loading products...
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
