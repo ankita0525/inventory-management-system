@@ -1,0 +1,21 @@
+{
+  "name": "inventory-management-system-sqlite",
+  "version": "1.0.0",
+  "description": "Inventory Management System with SQLite Database",
+  "main": "server-sqlite.js",
+  "scripts": {
+    "start": "node server-sqlite.js",
+    "dev": "nodemon server-sqlite.js"
+  },
+  "keywords": ["inventory", "management", "nodejs", "express", "sqlite"],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
